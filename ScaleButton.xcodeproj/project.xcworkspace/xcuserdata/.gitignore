@@ -1,0 +1,4 @@
+# Xcode
+pc.xcuserdatad/*
+pcostello.xcuserdatad/*
+.DS_Store
