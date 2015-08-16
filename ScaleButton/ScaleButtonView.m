@@ -11,9 +11,12 @@
 #define DefaultCornerRadius 4
 #define PressedAlpha 0.8f
 
+IB_DESIGNABLE
 @interface ScaleButtonView()
-@property (nonatomic) IBInspectable CGFloat pressScale;
-@property (nonatomic) IBInspectable CGFloat cornerRadius;
+{
+    IBInspectable CGFloat pressScale;
+    IBInspectable CGFloat cornerRadius;
+}
 @end
 
 @implementation ScaleButtonView
@@ -31,14 +34,14 @@
     for (UIView *view in self.subviews)
         [view setUserInteractionEnabled:NO];
     
-    if (!_cornerRadius)
-        _cornerRadius = DefaultCornerRadius;
+    if (!cornerRadius)
+        cornerRadius = DefaultCornerRadius;
 }
 
 -(void) roundCorners
 {
     [[self layer] setMasksToBounds:YES];
-    [self.layer setCornerRadius:_cornerRadius];
+    [self.layer setCornerRadius:cornerRadius];
 }
 
 -(void) drawRect:(CGRect)rect
@@ -50,8 +53,8 @@
 
 -(void) buttonPressed:(id)sender
 {
-    if (self.enabled && _pressScale)
-        [self scaleButton:_pressScale :PressedAlpha];
+    if (self.enabled && pressScale)
+        [self scaleButton:pressScale :PressedAlpha];
 }
 
 -(void) buttonReleased:(id)sender
