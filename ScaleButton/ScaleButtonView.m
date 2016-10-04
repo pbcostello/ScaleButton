@@ -23,6 +23,7 @@ IB_DESIGNABLE
 
 -(void) awakeFromNib
 {
+    [super awakeFromNib];
     [self addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchDown];
     [self addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchDragEnter];
     [self addTarget:self action:@selector(buttonReleased:) forControlEvents:UIControlEventTouchUpInside];
